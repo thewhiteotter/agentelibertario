@@ -19,15 +19,16 @@
   --orange:#fb923c;
   --safe-bottom:env(safe-area-inset-bottom,0px);
 }
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;min-width:0}
+body>*{max-width:100%;overflow-x:hidden}
 
 /* Grain */
 body::before{content:'';position:fixed;inset:0;opacity:.03;z-index:9999;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* ========== HERO ========== */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem 1.25rem;overflow:hidden}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem 1rem;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,var(--accent-glow),transparent),
   radial-gradient(ellipse 60% 40% at 20% 80%,#a78bfa15,transparent),
   radial-gradient(ellipse 60% 40% at 80% 60%,#4ade8010,transparent)}
@@ -118,15 +119,15 @@ h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2),var(--ora
 }
 
 /* Author group */
-.author-group{grid-column:1/-1;display:flex;align-items:center;gap:.75rem;padding:1.25rem 0 .375rem}
-.author-group h3{font-size:1rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55%;min-width:0}
-.author-group .line{flex:1;height:1px;background:var(--border)}
+.author-group{grid-column:1/-1;display:flex;align-items:center;gap:.75rem;padding:1.25rem 0 .375rem;min-width:0;overflow:hidden}
+.author-group h3{font-size:1rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex-shrink:1}
+.author-group .line{flex:1;height:1px;background:var(--border);min-width:1rem}
 .author-group .badge{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text3);padding:.2rem .5rem;border-radius:6px;background:var(--surface2);white-space:nowrap;flex-shrink:0}
 
 /* Card */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;transition:all .2s;cursor:default;display:flex;flex-direction:column;gap:.5rem;min-width:0;overflow:hidden}
 .card:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;min-width:0}
 .card-title{font-size:.875rem;font-weight:600;line-height:1.35;flex:1;word-break:break-word;min-width:0;overflow-wrap:anywhere}
 .card-status{flex-shrink:0;padding:.2rem .5rem;border-radius:100px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .card-status.indexed{color:var(--green);background:var(--green-bg);border:1px solid var(--green-border)}
